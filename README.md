@@ -1,4 +1,4 @@
-**Trợ Lý Phân Tích Dữ Liệu Đa Năng (DataMate)**  
+# Trợ Lý Phân Tích Dữ Liệu Đa Năng (DataMate)
 
 **Giới Thiệu**  
 Chào mừng bạn đến với hướng dẫn cá nhân của mình! Trong dự án này, mình sẽ xây dựng **DataMate** - một công cụ phân tích dữ liệu mạnh mẽ và tiện lợi sử dụng các mô hình ngôn ngữ lớn (LLMs). Với **DataMate**, bạn có thể dễ dàng tải lên dữ liệu, đặt câu hỏi, khám phá dữ liệu và nhận các phân tích trực quan thông qua giao diện đàm thoại. Dự án này sử dụng Python cùng các công cụ Langchain, Streamlit, PyGWalker và OpenAI API.  
