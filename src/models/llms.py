@@ -1,4 +1,5 @@
 from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 def load_llms_model(model_name: str):
     """
@@ -11,6 +12,13 @@ def load_llms_model(model_name: str):
             max_tokens=1000,
         )
     elif "gemini" in model_name:
-        pass
+        return ChatGoogleGenerativeAI(
+            model=model_name,
+            temperature=0.1,
+            max_tokens=None,
+            timeout=None,
+            max_retries=2,
+            # other params...
+        )
     else:
         raise ValueError("Model not supported")

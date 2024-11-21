@@ -14,10 +14,14 @@ from src.utils import execute_plt_code
 load_dotenv()
 
 logger = BaseLogger()
+# MODEL_NAME = "gemini-1.5-pro"
 MODEL_NAME = "gpt-3.5-turbo"
 
 def process_query(agent, query):
     response = agent(query)
+    print("*"*20)
+    print(response)
+    print("*"*20)
     response_code = response['intermediate_steps'][-1][0].tool_input['query']
 
     if "plt" in response_code:
@@ -36,7 +40,7 @@ def process_query(agent, query):
         st.session_state.history.append({query, response['output']})
 
 def display_chat_history():
-    st.write("### Chat History ###")
+    st.write("### Chat History 🕵️‍♂️ ###")
     for i, (query, response) in enumerate(st.session_state.history):
         st.write(f"**Query {i+1}:** {query}")
         st.write(f"**Response:** {response}")
@@ -50,7 +54,7 @@ def main():
         layout="centered", # Options: "centered" or "wide"
         initial_sidebar_state="expanded",  # Options: "collapsed", "expanded"
     )
-    st.header("🧠DataMate📊 - Your Data Analysis Assistant")
+    st.header("DataMate📊-Your Data Analysis Assistant🧠")
     st.write("### 🤖Welcome to DataMate! Let's start analyzing your data! ###")
 
     # Load llms model
@@ -67,6 +71,8 @@ def main():
 
     # Read the CSV file
     if uploaded_file is not None:
+        st.session_state.file_name = uploaded_file.name
+        st.session_state.file_uploaded = True
         st.session_state.df = pd.read_csv(uploaded_file)
         st.write("### Data Preview ###", st.session_state.df.head())
 
