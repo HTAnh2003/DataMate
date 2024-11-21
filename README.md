@@ -1,14 +1,14 @@
 # Trợ Lý Phân Tích Dữ Liệu Đa Năng (DataMate)
 
 **Giới Thiệu**  
-Chào mừng bạn đến với hướng dẫn cá nhân của mình! Trong dự án này, mình sẽ xây dựng **DataMate** - một công cụ phân tích dữ liệu mạnh mẽ và tiện lợi sử dụng các mô hình ngôn ngữ lớn (LLMs). Với **DataMate**, bạn có thể dễ dàng tải lên dữ liệu, đặt câu hỏi, khám phá dữ liệu và nhận các phân tích trực quan thông qua giao diện đàm thoại. Dự án này sử dụng Python cùng các công cụ Langchain, Streamlit, PyGWalker và OpenAI API.  
+Chào mừng bạn đến với hướng dẫn cá nhân của mình! Trong dự án này, mình sẽ xây dựng **DataMate** - một công cụ phân tích dữ liệu mạnh mẽ và tiện lợi sử dụng các mô hình ngôn ngữ lớn (LLMs). Với **DataMate**, bạn có thể dễ dàng tải lên dữ liệu, đặt câu hỏi, khám phá dữ liệu và nhận các phân tích trực quan thông qua giao diện đàm thoại. Dự án này sử dụng Python cùng các công cụ Langchain, Streamlit, PyGWalker và OpenAI (Gemini) API.  
 
 **Mục Tiêu Dự Án**  
 Mục tiêu của mình là xây dựng một công cụ hỗ trợ phân tích dữ liệu dành cho cá nhân hoặc nhóm nhỏ, giúp tiết kiệm thời gian và tối ưu hóa quy trình khám phá dữ liệu.  
 
 ---
 
-**Nội Dung Dự Án**  
+## **Nội Dung Dự Án**  
 
 1. **Tổng Quan về DataMate**  
    - **DataMate** là công cụ hỗ trợ phân tích dữ liệu với các tính năng chính:  
@@ -26,7 +26,31 @@ Mục tiêu của mình là xây dựng một công cụ hỗ trợ phân tích 
 
 ---
 
-**Các Bước Thực Hiện**  
+## **Hướng Dẫn Chạy Dự Án**
+
+### 1. **Cài Đặt Môi Trường**
+- Tạo môi trường ảo Python:
+  ```bash
+  python -m venv venv
+  source venv/bin/activate  # Trên macOS/Linux
+  venv\Scripts\activate     # Trên Windows
+  ```
+- Cài đặt các gói cần thiết:
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+### 2. **Chạy Ứng Dụng**
+- Chạy ứng dụng Streamlit:
+  ```bash
+  streamlit run 1_📊_Chat_With_Your_Data.py
+  ```
+### Giao diện ứng dụng
+
+![Giao diện ứng dụng](./images/page1.jpg)
+---
+
+## **Các Bước Thực Hiện**  
 
 1. **Khởi Tạo Dự Án**  
    - Tạo cấu trúc thư mục và môi trường lập trình.  
