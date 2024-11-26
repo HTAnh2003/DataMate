@@ -8,7 +8,5 @@ matplotlib
 seaborn
 pygwalker
 jupyterlab
-tiktoken
-tabulate
 python-dotenv
 langchain-google-genai
