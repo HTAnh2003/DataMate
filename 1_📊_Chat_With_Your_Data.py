@@ -5,7 +5,6 @@ import seaborn as sns
 from dotenv import load_dotenv
 
 from langchain_experimental.agents.agent_toolkits.pandas.base import create_pandas_dataframe_agent
-from langchain_openai import ChatOpenAI
 from src.logger.base import BaseLogger
 from src.models.llms import load_llms_model
 from src.utils import execute_plt_code
@@ -14,17 +13,20 @@ from src.utils import execute_plt_code
 load_dotenv()
 
 logger = BaseLogger()
-# MODEL_NAME = "gemini-1.5-pro"
-MODEL_NAME = "gpt-3.5-turbo"
+MODEL_NAME = "gemini-1.5-pro"
+MODEL_NAME = "gpt-4o"
 
 def process_query(agent, query):
     response = agent(query)
     print("*"*20)
     print(response)
     print("*"*20)
-    response_code = response['intermediate_steps'][-1][0].tool_input['query']
+    try:
+        response_code = response['intermediate_steps'][-1][0].tool_input
+    except:
+        response_code = None
 
-    if "plt" in response_code:
+    if ("plt" in response_code) or ("plot" in response_code):
         st.write("### Plotting the data ###")
         st.write(response['output'])
         fig = execute_plt_code(response_code, st.session_state.df)
@@ -80,7 +82,7 @@ def main():
         agent = create_pandas_dataframe_agent(
             llm=llm,
             df=st.session_state.df,
-            agent_type="tool-calling",
+            agent_type="zero-shot-react-description",
             allow_dangerous_code=True,
             verbose=True,
             return_intermediate_steps=True,
