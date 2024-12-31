@@ -4,7 +4,7 @@ from langchain_core.rate_limiters import InMemoryRateLimiter
 
 # Khởi tạo rate limiter
 rate_limiter = InMemoryRateLimiter(
-    requests_per_second=0.1,  # Cho phép 1 yêu cầu mỗi 10 giây
+    requests_per_second=0.2,  # Cho phép 1 yêu cầu mỗi 5 giây
     check_every_n_seconds=0.1,  # Kiểm tra mỗi 100 ms
     max_bucket_size=10  # Kích thước tối đa của bucket
 )
@@ -26,11 +26,9 @@ def load_llms_model(model_name: str):
             temperature=0.1,
             max_tokens=None,
             timeout=None,
-            max_retries=1,
+            max_retries=2,
             rate_limiter=rate_limiter,
             # other params...
         )
     else:
         raise ValueError("Model not supported")
-    
-    print("------ok------")
