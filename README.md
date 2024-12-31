@@ -29,6 +29,22 @@ Mục tiêu của mình là xây dựng một công cụ hỗ trợ phân tích 
 ## **Hướng Dẫn Chạy Dự Án**
 
 ### 1. **Cài Đặt Môi Trường**
+- Clone repository về máy của bạn:
+  ```bash
+  git clone https://github.com/HTAnh2003/DataMate.git
+  ```
+- Di chuyển vào thư mục DataMate:
+  ```bash
+  cd DataMate
+  ```
+
+Nếu bạn muốn sử dụng Docker để chạy dự án này và có sử dụng `cloudflare`, hãy thay đổi biến `TUNNEL_TOKEN` trong file `docker-compose.yml`. Sau đó chạy lệnh sau để chạy dự án:
+```bash
+docker-compose up
+```
+Còn nếu không sử dụng Docker hãy thực hiện các bước sau:
+
+```bash
 - Tạo môi trường ảo Python:
   ```bash
   python -m venv venv
