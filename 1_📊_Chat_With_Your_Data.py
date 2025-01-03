@@ -59,9 +59,17 @@ def main():
     st.header("DataMate📊-Your Data Analysis Assistant🧠")
     st.write("### 🤖Welcome to DataMate! Let's start analyzing your data! ###")
 
-    # Load llms model
-    llm = load_llms_model(MODEL_NAME)
-    logger.info(f"### Successfully loaded the model: {MODEL_NAME} !###")
+    # Dropdown for model selection
+    model_options = ["gpt-4o", "gemini-1.5-pro", "gemini-2.0-flash-exp", "llama", "other"]
+    selected_model = st.selectbox("Select the model to use:", model_options)
+
+    # If 'other' is selected, show a text input to enter a custom model name
+    if selected_model == "other":
+        selected_model = st.text_input("Enter the name of the custom model:")
+
+    # Load llms model based on selection
+    llm = load_llms_model(selected_model)
+    logger.info(f"### Successfully loaded the model: {selected_model} !###")
 
     # Upload CSV file
     with st.sidebar:
